@@ -30,9 +30,3 @@ print('Login Ticket: ' + ticket)
 #Construct HTTP header with login ticket for subsequent calls (if we were to make more...)
 auth_headers = {'Content-type': 'application/json', "X-Auth-Token": ticket}
 
-#Submit solution to Exercise Tracking System
-ET_DATA['exercise'] = 'Task 1: Login'
-ET_DATA['solution'] = ticket
-req = requests.post('http://devnetexpress.pythonanywhere.com/submit', headers = headers, data=json.dumps(ET_DATA))
-et_answer = req.json()
-print('%s: %s' % (et_answer['result'],et_answer['reason']))
